@@ -148,7 +148,7 @@ function ns:CreateSettings()
     scan:SetPoint("LEFT", reset, "RIGHT", 10, 0)
     scan:SetText("Rescan Shields")
     scan:SetScript("OnClick", function()
-        ns:ScanPlayerShields()
+        ns:RescanShields()
     end)
 
     local note = MakeLabel(frame,
