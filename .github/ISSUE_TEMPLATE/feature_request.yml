@@ -1,0 +1,35 @@
+name: Feature request
+description: Suggest an improvement or additional shield support
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. Please describe the use case rather than only the requested UI change.
+  - type: textarea
+    id: request
+    attributes:
+      label: What would you like to add or change?
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Why would this be useful?
+    validations:
+      required: true
+  - type: input
+    id: shield
+    attributes:
+      label: Shield or absorb effect
+      description: If this is support for another absorb effect, provide its exact in-game name.
+  - type: dropdown
+    id: class
+    attributes:
+      label: Class
+      options:
+        - Priest
+        - Mage
+        - Warlock
+        - Other
