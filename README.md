@@ -52,3 +52,8 @@ WoW Forever can mark combat information as secret. All Class Shields avoids arit
 ## License
 
 MIT License.
+## Support
+
+Found a bug or have a feature request? Please use the [GitHub Issues](https://github.com/Zeerea/AllClassShields/issues) page.
+
+Downloads are also available on [CurseForge](https://www.curseforge.com/wow/addons/all-class-shields).
