@@ -3,7 +3,7 @@
 ## Title: All Class Shields
 ## Notes: Clean, configurable absorb-shield tracking for World of Warcraft: Forever.
 ## Author: Renzo
-## Version: 1.0.1
+## Version: 1.0.2
 ## SavedVariables: AllClassShieldsDB
 ## X-Curse-Project-Name: All Class Shields
 ## X-Game-Flavor: Forever
