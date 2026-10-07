@@ -2,7 +2,7 @@ local addonName, ns = ...
 
 _G.AllClassShields = ns
 ns.name = addonName
-ns.version = "1.0.1"
+ns.version = "1.0.2"
 ns.frames = {}
 ns.active = {}
 ns.auraState = {}
