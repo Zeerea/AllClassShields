@@ -7,12 +7,12 @@
 ## SavedVariables: AllClassShieldsDB
 ## X-Curse-Project-Name: All Class Shields
 ## X-Game-Flavor: Forever
-## IconTexture: Interface\Icons\Spell_Holy_PowerWordShield
+## IconTexture: Interface\\Icons\\Spell_Holy_PowerWordShield
 
-Core\Bootstrap.lua
-Core\Database.lua
-Locales\Localization.lua
-Data\Shields.lua
-Core\Tracker.lua
-UI\Settings.lua
-UI\Main.lua
+Core\\Bootstrap.lua
+Core\\Database.lua
+Locales\\Localization.lua
+Data\\Shields.lua
+Core\\Tracker.lua
+UI\\Settings.lua
+UI\\Main.lua
