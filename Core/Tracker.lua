@@ -201,6 +201,18 @@ function ns:UpdateLiveShield()
     end
 end
 
+function ns:RescanShields()
+    -- Aura details may be restricted during combat. In that case keep the
+    -- current family and refresh only the aggregate absorb value.
+    if InCombatLockdown and InCombatLockdown() then
+        self:UpdateLiveShield()
+        return
+    end
+
+    self.currentFamily = self:ScanFamilyOutOfCombat()
+    self:UpdateLiveShield()
+end
+
 function ns:ScheduleFreshMaxCapture()
     if not C_Timer or not C_Timer.After then
         return
