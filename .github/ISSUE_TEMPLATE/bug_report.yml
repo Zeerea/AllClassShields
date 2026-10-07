@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a problem with All Class Shields
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Please include enough detail to reproduce it in WoW Forever.
+  - type: input
+    id: addon_version
+    attributes:
+      label: Addon version
+      placeholder: "1.0.1"
+    validations:
+      required: true
+  - type: input
+    id: game_version
+    attributes:
+      label: WoW Forever version
+      placeholder: "1.60.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: class
+    attributes:
+      label: Class
+      options:
+        - Priest
+        - Mage
+        - Warlock
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: shield
+    attributes:
+      label: Shield or absorb effect
+      placeholder: "Power Word: Shield, Mana Shield, etc."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe what you expected and what actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Log in on ...
+        2. Cast ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: lua_error
+    attributes:
+      label: Lua error
+      description: Paste the full Lua error here if one appeared.
+      render: text
