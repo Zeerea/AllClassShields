@@ -289,5 +289,3 @@ init:SetScript("OnEvent", function(_, _, loaded)
 
     ns:Print("Loaded. Type /acs for commands.")
 end)
-
-[executed on device: forsaken (ef773606-47da-466d-b53f-3635de586156)]
