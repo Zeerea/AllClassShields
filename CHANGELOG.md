@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2 - 2026-10-07
+
+- Fixed the `Rescan Shields` button calling a removed tracker function.
+- Added a safe `RescanShields()` path that respects WoW Forever combat restrictions.
+- Strengthened release validation so obsolete tracker calls are checked across all runtime source files.
+- Added a release gate that verifies the rescan method is both defined and wired to the settings button.
+
 ## 1.0.1 - 2026-10-06
 
 - Fixed an occasional absorb-bar jump after refreshing a shield.
