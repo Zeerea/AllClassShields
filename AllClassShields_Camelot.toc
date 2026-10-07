@@ -1,0 +1,18 @@
+## Interface: 16001
+## Interface-Camelot: 16001
+## Title: All Class Shields
+## Notes: Clean, configurable absorb-shield tracking for World of Warcraft: Forever.
+## Author: Renzo
+## Version: 1.0.1
+## SavedVariables: AllClassShieldsDB
+## X-Curse-Project-Name: All Class Shields
+## X-Game-Flavor: Forever
+## IconTexture: Interface\Icons\Spell_Holy_PowerWordShield
+
+Core\Bootstrap.lua
+Core\Database.lua
+Locales\Localization.lua
+Data\Shields.lua
+Core\Tracker.lua
+UI\Settings.lua
+UI\Main.lua
