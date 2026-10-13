@@ -4,11 +4,50 @@ local function IsSecret(value)
     return issecretvalue and issecretvalue(value)
 end
 
-local function GetAccessibleFamily(spellID)
-    if spellID == nil or IsSecret(spellID) then
+local function GetAccessibleFamilyByName(spellName)
+    if spellName == nil or IsSecret(spellName) or type(spellName) ~= "string" then
         return nil
     end
-    return ns.spellLookup[spellID]
+
+    return ns.shieldNameLookup[string.lower(spellName)]
+end
+
+local function GetClientSpellName(spellID)
+    if spellID == nil or IsSecret(spellID)
+        or not C_Spell or type(C_Spell.GetSpellInfo) ~= "function" then
+        return nil
+    end
+
+    -- Forever may use an override ID that is not in the curated Classic rank
+    -- list. Ask the client for the canonical spell name, but never inspect a
+    -- secret result.
+    local ok, info = pcall(C_Spell.GetSpellInfo, spellID)
+    if not ok or info == nil or IsSecret(info) or type(info) ~= "table" then
+        return nil
+    end
+
+    local spellName = info.name
+    if spellName == nil or IsSecret(spellName) or type(spellName) ~= "string" then
+        return nil
+    end
+
+    return spellName
+end
+
+local function GetAccessibleFamily(spellID, spellName)
+    if spellID ~= nil and not IsSecret(spellID) then
+        local family = ns.spellLookup[spellID]
+        if family then
+            return family
+        end
+    end
+
+    local family = GetAccessibleFamilyByName(spellName)
+    if family then
+        return family
+    end
+
+    return GetAccessibleFamilyByName(GetClientSpellName(spellID))
 end
 
 local GENERIC_FAMILY = {
@@ -34,7 +73,7 @@ function ns:ScanFamilyOutOfCombat()
             return nil
         end
 
-        local family = GetAccessibleFamily(aura.spellId)
+        local family = GetAccessibleFamily(aura.spellId, aura.name)
         if family then
             return family
         end
@@ -158,11 +197,14 @@ function ns:UpdateLiveShield()
             self:ClearLiveShield()
             return
         end
+    end
 
-        local scannedFamily = self:ScanFamilyOutOfCombat()
-        if scannedFamily then
-            self.currentFamily = scannedFamily
-        end
+    -- Aura identity can remain readable outside combat even when the aggregate
+    -- absorb amount is secret. Scan it independently so an override-ID Mana
+    -- Shield can still be identified by the canonical aura name.
+    local scannedFamily = self:ScanFamilyOutOfCombat()
+    if scannedFamily then
+        self.currentFamily = scannedFamily
     end
 
     if not self.currentFamily then
