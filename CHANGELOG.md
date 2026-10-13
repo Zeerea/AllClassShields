@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.3 - 2026-10-13
+
+- Improved Mana Shield detection for WoW Forever.
+- Added verified Forever override spell IDs used by Advanced Warding for Mana Shield, Fire Ward and Frost Ward.
+- Added the current Forever Ice Barrier variant ID exposed by the client database.
+- Added a safe canonical spell-name fallback when Forever reports an override spell ID not present in the curated rank list.
+- Added aura-name fallback for supported shields during out-of-combat scans.
+- Shield-family scanning now remains available outside combat even when UnitGetTotalAbsorbs() is secret.
+- Kept the existing secret-value guards and raw absorb forwarding unchanged.
+
 ## 1.0.2 - 2026-10-07
 
 - Fixed the `Rescan Shields` button calling a removed tracker function.
